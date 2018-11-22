@@ -1,0 +1,2733 @@
+{
+	"info": {
+		"_postman_id": "df6b8689-f18d-4ffe-8142-9066d0653df9",
+		"name": "Content Server Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Services",
+			"item": [
+				{
+					"name": "Get Article By Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article><article-id pub-id-type=\"doi\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/article/type/Original%20Article",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"article",
+								"type",
+								"Original%20Article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Article",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<dii:Identifier>10.1056/NEJMicm075566</dii:Identifier>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/article/doi/10.1056/NEJMicm075566",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"article",
+								"doi",
+								"10.1056",
+								"NEJMicm075566"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current Issue TOC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<issue-xml><journal-meta><journal-id journal-id-type=\"publisher-id\">nejm</journal-id>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/issue/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"issue",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Graphic, Table, or Figure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<graphic id=\"NEJMoa0900544_f3\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/article/doi/10.1056/NEJMoa0900544/graphic/NEJMoa0900544_f3",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"article",
+								"doi",
+								"10.1056",
+								"NEJMoa0900544",
+								"graphic",
+								"NEJMoa0900544_f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Media Objects by Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<objects count=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/media/type/video",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"media",
+								"type",
+								"video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get NEJM Taxonomy Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<specialties>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/specialty",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"specialty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issue Audio Summary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<dcterms:identifier>http://cms.mms.org/NEJM/media/2011/20110120/issue-files/NEJM_Summary_1-20-2011.mp3</dcterms:identifier>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/media/file/nejm_2011.364.issue-3.summary.mp3",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"media",
+								"file",
+								"nejm_2011.364.issue-3.summary.mp3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Article Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<all-article-types><article-types>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/article-type",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"article-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PAP Articles Published in the last 30 days",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<docs><doc><uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/pap/olfdocs/30",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"pap",
+								"olfdocs",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Articles Updated in the last 30 days",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<docs><doc><uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/nejm/updated/docs/30",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"nejm",
+								"updated",
+								"docs",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Article",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<uri>http://www.nejm.org/doi/full/10.1056/NEJMimc1708586</uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/verify/doi/10.1056/NEJMimc1708586",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"verify",
+								"doi",
+								"10.1056",
+								"NEJMimc1708586"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cme combined current",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article article-type=\"cme-collection\" dtd-version=\"3.0\"><front><journal-meta>');",
+									"",
+									"tests[\"Body has sub-article\"] = responseBody.has('<sub-article article-type=\"cme-question\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/reader/cme/combined/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"reader",
+								"cme",
+								"combined",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cme combined 2018/01/18",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article article-type=\"cme-collection\" dtd-version=\"3.0\"><front><journal-meta>');",
+									"",
+									"tests[\"Body has sub-article\"] = responseBody.has('<sub-article article-type=\"cme-question\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/reader/cme/combined/2018/01/18",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"reader",
+								"cme",
+								"combined",
+								"2018",
+								"01",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<app>ContentServer</app>');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/version",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"version"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HILA",
+			"item": [
+				{
+					"name": "HILA Current Issue TOC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<issue-xml><issue><issue-id pub-id-type=\"doi\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/hila/issue/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"hila",
+								"issue",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HILA Specified Date Issue TOC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<issue-id pub-id-type=\"pub-date\">2012-05-10</issue-id>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/hila/issue/2012/05/10",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"hila",
+								"issue",
+								"2012",
+								"05",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ICSVC",
+			"item": [
+				{
+					"name": "PAP OLF Docs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<docs><doc><uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/pap/olfdocs/10",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"pap",
+								"olfdocs",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updated Docs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<docs><doc><uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/nejm/updated/docs/10",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"nejm",
+								"updated",
+								"docs",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updated Yearly",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<docs><doc><uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/nejm/updated/yearly/2017/1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"nejm",
+								"updated",
+								"yearly",
+								"2017",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ssd nejm DOI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<?xml version=\"1.0\" encoding=\"UTF-8\"?><MLArticle><uri>http://www.nejm.org/doi/full/10.1056/NEJMoa1604267</uri>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/ssd/nejm/doi/10.1056/NEJMoa1604267",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"ssd",
+								"nejm",
+								"doi",
+								"10.1056",
+								"NEJMoa1604267"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ssd issue-related-articles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<pub_year>2017</pub_year><pub_month>11</pub_month><pub_day>30</pub_day>');",
+									"",
+									"tests[\"Body matches relatedArticle\"] = responseBody.has('<relatedArticle>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/ssd/issue-related-articles/2017-11-30",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"ssd",
+								"issue-related-articles",
+								"2017-11-30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "nih ssd DOI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article-id pub-id-type=\"doi\">10.1056/NEJMc1712990</article-id>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/nih/ssd/doi/10.1056/NEJMc1712990",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"nih",
+								"ssd",
+								"doi",
+								"10.1056",
+								"NEJMc1712990"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image Challenge",
+			"item": [
+				{
+					"name": "Get Image Challenge By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenge id=\"IC20141016\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?id=IC20141016",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20141016"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Image Challenges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenges total=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Toughest Image Challenges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenges total=\"10\" start=\"1\" page_length=\"10\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?collection=toughest",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "collection",
+									"value": "toughest"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Full Sized Image By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is image/jpeg\"] = postman.getResponseHeader(\"Content-Type\") === \"image/jpeg\";",
+									"",
+									"tests[\"transfer-encoding is chunked\"] = postman.getResponseHeader(\"transfer-encoding\") === \"chunked\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/images?id=IC20141016",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"images"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20141016"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get PowerPoint By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is presentation\"] = postman.getResponseHeader(\"Content-Type\") === \"application/vnd.openxmlformats-officedocument.presentationml.presentation\";",
+									"",
+									"tests[\"Content-Disposition is attachement\"] = postman.getResponseHeader(\"Content-Disposition\") === \"attachment; filename=NEJMImageChallenge10-16-2014.pptx\";",
+									"",
+									"tests[\"transfer-encoding is chunked\"] = postman.getResponseHeader(\"transfer-encoding\") === \"chunked\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/images?id=IC20141016&format=pptx",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"images"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20141016"
+								},
+								{
+									"key": "format",
+									"value": "pptx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resized Image By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is image/jpeg\"] = postman.getResponseHeader(\"Content-Type\") === \"image/jpeg\";",
+									"",
+									"tests[\"transfer-encoding is chunked\"] = postman.getResponseHeader(\"transfer-encoding\") === \"chunked\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/images?id=IC20140918&width=300&height=300",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"images"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20140918"
+								},
+								{
+									"key": "width",
+									"value": "300"
+								},
+								{
+									"key": "height",
+									"value": "300"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resized Image Range By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 206\"] = responseCode.code === 206;",
+									"",
+									"tests[\"Content-Type is image/jpeg\"] = postman.getResponseHeader(\"Content-Type\") === \"image/jpeg\";",
+									"",
+									"tests[\"transfer-encoding is chunked\"] = postman.getResponseHeader(\"transfer-encoding\") === \"chunked\";",
+									"",
+									"tests[\"Accept-Ranges is bytes\"] = postman.getResponseHeader(\"Accept-Ranges\") === \"bytes\";",
+									"",
+									"tests[\"Content-Range is bytes 1000-9999/*\"] = postman.getResponseHeader(\"Content-Range\") === \"bytes 1000-9999/*\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "bytes=1000-9999"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/images?id=IC20140918&width=350&height=4000",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"images"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20140918"
+								},
+								{
+									"key": "width",
+									"value": "350"
+								},
+								{
+									"key": "height",
+									"value": "4000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Randomly Ordered Set of Image Challenges",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenges total=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?sort=random&results=20",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "random"
+								},
+								{
+									"key": "results",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current Image Challenge + X Challenges Before It",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(' start=\"1\" page_length=\"5\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?results=5",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "results",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Paged Results",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(' start=\"21\" page_length=\"10\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?results=10&start=21",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "results",
+									"value": "10"
+								},
+								{
+									"key": "start",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vote Counts for One Challenge",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenge id=\"IC20140918\"');",
+									"",
+									"tests[\"Body correct responses\"] = responseBody.has('<answer correct=\"true\" responses=\"');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?id=IC20140918",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20140918"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert an Answer Into Challenge",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenge id=\"IC20150827\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?id=IC20150827&answer=1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20150827"
+								},
+								{
+									"key": "answer",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate PowerPoint Slides for Challenge",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenge id=\"IC20150226\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?id=IC20150226&format=pptx",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "IC20150226"
+								},
+								{
+									"key": "format",
+									"value": "pptx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Challenge Plus X Challenges Before and After It",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<image_challenge id=\"IC20140918\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/image_challenges?sort=ascending&before=2&after=2&id=IC20140918",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"image_challenges"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "ascending"
+								},
+								{
+									"key": "before",
+									"value": "2"
+								},
+								{
+									"key": "after",
+									"value": "2"
+								},
+								{
+									"key": "id",
+									"value": "IC20140918"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "K+",
+			"item": [
+				{
+					"name": "QoW LongWeb current",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<div class=\"question-of-the-week\">');",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongWeb&source=evan",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongWeb"
+								},
+								{
+									"key": "source",
+									"value": "evan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QofWeekFeedback",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(\"<h1>For October 3, 2017</h1>\");",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeekFeedback?source=UNSPECIFIED&format=&QID=349&cache=new&Answer=",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeekFeedback"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "format",
+									"value": ""
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								},
+								{
+									"key": "Answer",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QofWeekFeedback cached",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(\"<h1>For October 3, 2017</h1>\");",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeekFeedback?source=UNSPECIFIED&format=&QID=349&Answer=",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeekFeedback"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "format",
+									"value": ""
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "Answer",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QoW LongEmail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(\"<!--create table row for content-->\");",
+									"",
+									"tests[\"Body has image\"] = responseBody.has(\"images/349/q_of_week_349_figure.jpg\");",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") == \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongEmail&QID=349&source=UNSPECIFIED&cache=new",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongEmail"
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QoW LongWeb",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<div class=\"question-of-the-week\">');",
+									"",
+									"tests[\"Body has image\"] = responseBody.has(\"images/349/q_of_week_349_figure.jpg\");",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongWeb&QID=349&source=UNSPECIFIED&cache=new",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongWeb"
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QoW LongWidget",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<div class=\"outerContainer\">');",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongWidget&QID=349&source=UNSPECIFIED&cache=new",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongWidget"
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QoW LongEmailWidget",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<table width=\"300\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;\">');",
+									"",
+									"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongEmailWidget&QID=349&source=UNSPECIFIED&cache=new",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongEmailWidget"
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "source",
+									"value": "UNSPECIFIED"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QoW LongEmailWidget2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has(\"<tr>\");",
+									"",
+									"tests[\"Content-Type is text.html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek?format=LongEmailWidget2&QID=349&source=NEJMETOC&cache=new&preview=internal",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "LongEmailWidget2"
+								},
+								{
+									"key": "QID",
+									"value": "349"
+								},
+								{
+									"key": "source",
+									"value": "NEJMETOC"
+								},
+								{
+									"key": "cache",
+									"value": "new"
+								},
+								{
+									"key": "preview",
+									"value": "internal"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QoW",
+			"item": [
+				{
+					"name": "Widget",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('jsonpCallback ( {\\'html\\': \\'<div class=\"outerContainer\">   <div class=\"containerBorder top\">');",
+									"",
+									"tests[\"Content-Type is text/plain\"] = postman.getResponseHeader(\"Content-Type\") === \"text/plain;charset=UTF-8\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/cams/QofWeek/widget?source=test&format=LongWidget&callback=jsonpCallback#",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"cams",
+								"QofWeek",
+								"widget"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "test"
+								},
+								{
+									"key": "format",
+									"value": "LongWidget"
+								},
+								{
+									"key": "callback",
+									"value": "jsonpCallback"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Taxonomy",
+			"item": [
+				{
+					"name": "Topics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<topics><topic id=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/topic",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"topic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Perspective Topics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<perspective-topics><topic id=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/perspective",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"perspective"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specialty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<specialties><specialty id=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/specialty",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"specialty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubTopics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<subtopic id=\"');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/atypon/taxonomy/type/subtopics",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"atypon",
+								"taxonomy",
+								"type",
+								"subtopics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": []
+		},
+		{
+			"name": "iPad",
+			"item": [
+				{
+					"name": "iPad Combined CME feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article article-type=\"cme-collection\" dtd-version=\"3.0\"><front><journal-meta><journal-id journal-id-type=\"publisher-id\">nejm</journal-id>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/reader/cme/combined/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"reader",
+								"cme",
+								"combined",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPad Online First feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<feed xmlns=\"http://www.w3.org/2005/Atom\"><title>NEJM Active Online First Articles</title>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/reader/olfreader/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"reader",
+								"olfreader",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPad Current Issue TOC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<issue-xml><issue><journal-meta><journal-id journal-id-type=\"publisher-id\">nejm</journal-id><journal-id journal-id-type=\"nlm-ta\">N Engl J Med</journal-id><journal-title>The New England Journal of Medicine</journal-title><issn pub-type=\"ppub\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/reader/tocreader/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"reader",
+								"tocreader",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iPhone",
+			"item": [
+				{
+					"name": "iPhone Audio feed list (combined CP Audio and Issue Audio Summary)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<object-type-title><type>Audio Summary</type></object-type-title>');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/media/type/audio",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"media",
+								"type",
+								"audio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPhone Article feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<?xml version=\"1.0\" encoding=\"UTF-8\"?><article xmlns:didl=\"urn:mpeg:mpeg21:2002:02-DIDL-NS\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:dip=\"urn:mpeg:mpeg21:2005:01-DIP-NS\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:dii=\"urn:mpeg:mpeg21:2002:01-DII-NS\" xmlns:mms=\"http://www.massmed.org/elements/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:dcterms=\"http://purl.org/dc/terms/\" id=\"10.1056/NEJMoa1707572\"><div class=\"article-meta\">');",
+									"",
+									"tests[\"Body has article-body\"] = responseBody.has('<div class=\"article-body\">');"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/article/doi/10.1056/NEJMoa1707572",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"article",
+								"doi",
+								"10.1056",
+								"NEJMoa1707572"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPhone Video feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<object-type-title><type>Videos in Clinical Medicine</type></object-type-title>');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/media/type/video",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"media",
+								"type",
+								"video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPhone Image (ICM) feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article-type>Images in Clinical Medicine</article-type>');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/article/type/Images",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"article",
+								"type",
+								"Images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPhone Current Issue TOC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<issue-type-title><title>Current Issue</title></issue-type-title>');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/issue/current",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"issue",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iPhone Images in Clinical Medicine feed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is application/xml\"] = postman.getResponseHeader(\"Content-Type\") === \"application/xml;charset=UTF-8\";",
+									"",
+									"tests[\"Body has xml prolog\"] = responseBody.has('<?xml version=\"1.0\" encoding=\"UTF-8\"?>');",
+									"",
+									"tests[\"Body matches string\"] = responseBody.has('<article-type>Images in Clinical Medicine</article-type>');",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/ContentServer/content/iphone/article/type/Images%20in%20Clinical%20Medicine",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ContentServer",
+								"content",
+								"iphone",
+								"article",
+								"type",
+								"Images%20in%20Clinical%20Medicine"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
